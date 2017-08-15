@@ -9,7 +9,7 @@ let win
 
 function createWindow () {
   // Create the brower window.
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({width: 800, height: 600, transparent: true, frame: false})
 
   // and load the index.html of the app.
   win.loadURL(url.format({
@@ -54,7 +54,3 @@ app.on('activate', () => {
 
 // In this file youcan include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
-
-win.webContents.on('did-finish-load', () => {
-  win.webContents.send('main-process-messages', 'webContents event "did-finish-load" called.');
-})
