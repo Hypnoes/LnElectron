@@ -1,4 +1,5 @@
-const remote = require('electron').remote;
+const { remote } = require('electron');
+const { Menu, MenuItem } = remote;
 
 let btnMin = document.getElementById("min");
 let btnTog = document.getElementById("tog");
@@ -24,3 +25,15 @@ btnTog.onclick = () => {
 btnExt.onclick = () => {
     win.close(); 
 }
+
+const menu = new Menu()
+menu.append(new MenuItem({
+    label: 'DevConsole', click() {
+        win.webContents.openDevTools()
+    }
+}))
+
+window.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    menu.popup(win)
+}, false)
