@@ -9,17 +9,23 @@ let win
 
 function createWindow () {
   // Create the brower window.
-  win = new BrowserWindow({width: 800, height: 600, transparent: true, frame: false})
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    icon: './renderer/leaf.png',
+    transparent: true,
+    frame: false
+  })
 
   // and load the index.html of the app.
   win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
+    pathname: path.join(__dirname, 'renderer', 'index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
   // Open the DevTools.
-  win.webContents.openDevTools()
+  //win.webContents.openDevTools()
 
   // Emitted when the window in closed.
   win.on('closed', () => {

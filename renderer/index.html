@@ -6,17 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <style>
+        body {
+            padding-top: 50px;
+            -webkit-app-region: drag;
+        }
         button {
             -webkit-app-region: no-drag;
         }
         .navbar {
             user-select: none;
-            -webkit-app-region: drag
+            -webkit-app-region: drag;
+        }
+        .bts {
+            position: relative;
+            top: 8px;
+            right: 16px;
         }
     </style>
     <title>Document</title>
 </head>
-<body style="padding-top:50px; -webkit-app-region: drag">
+<body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
         <div class="navbar-header">
@@ -27,17 +36,17 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-                <img alt="Brand" src="leaf.png" style="padding: 0; width:20px">
+                <img alt="Brand" src="./leaf.png" style="width:16px">
             </a>
         </div>
         <div class="collapse navbar-collapse">
             <p class="navbar-text">LnElectron
                 <span class="glyphicon glyphicon-star"></span>
             </p>
-            <div class="navbar-right" style="padding-right:5px">
-                <button class='btn btn-default navbar-btn'>-</button>
-                <button class='btn btn-default navbar-btn'>+</button>
-                <button class='btn btn-danger navbar-btn'>×</button>
+            <div class="navbar-right bts">
+                <button class='btn btn-info navbar-btn' id="min"></button>
+                <button class='btn btn-warning navbar-btn' id="tog"></button>
+                <button class='btn btn-danger navbar-btn' id="exit"></button>
             </div>
         </div>
         <div>
@@ -51,7 +60,10 @@
             and Electron <script>document.write(process.versions.electron)</script>.
         </div>
     </div>
-    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" ></script>
+    <script>
+        window.$ = window.jQuery = require('../node_modules/jquery/dist/jquery.min.js');
+        require('../node_modules/bootstrap/dist/js/bootstrap.min.js');
+    </script>
+    <script src="./index.js"></script>
 </body>
 </html>
