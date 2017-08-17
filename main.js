@@ -13,7 +13,6 @@ function createWindow () {
     width: 800,
     height: 600,
     icon: './renderer/leaf.png',
-    transparent: true,
     frame: false
   })
 
